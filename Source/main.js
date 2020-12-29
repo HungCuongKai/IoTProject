@@ -9,15 +9,15 @@ mongoose.connect(process.env.MONGODB_URI,{useNewUrlParser: true, useUnifiedTopol
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 
-
-
-db.once("open",()=>{
 const use_schema = new mongoose.Schema({});
 const Modules = mongoose.model("customer",use_schema);
 //console.log()
 Modules.find().limit(10).exec((err,docs) => {console.log(docs)})
 
-})
+// db.once("open",()=>{
+
+
+// })
 // Modules
 // db.then((resolve)=>{
 
