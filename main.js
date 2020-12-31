@@ -5,11 +5,13 @@ const mongoose = require("mongoose");
 const convert = require("./Source/mongobd/Json2Schema.js");
 
 // Get Data
-prs.getCustomer(1,{username: 'Cuong1'});
-//Inset Data 
+prs.getCustomer(100,{username: 'Cuong4'});
+// Inset Data 
+
+
 // var json = {
-// 			    username: 'Cuong1',
-// 			    name: 'Hung Cuong',
+// 			    username: 'Cuong4',
+// 			    name: 'Tran Hung Cuong',
 // 			    address: '9286 Bethany Glens\nVasqueztown, CO 22939',
 // 			    birthdate: '1977-03-02T02:20:31.000Z',
 // 			    email: 'arroyocolton@gmail.com',
@@ -20,6 +22,7 @@ prs.getCustomer(1,{username: 'Cuong1'});
 // 			      '699456451cc24f028d2aa99d7534c219': [1,2,3]
 // 			    }
 // 			  }
-// 			  console.log(json)
-// console.log(convert.createSchema2(json,null));
-// prs.insetCustomer(json, null);
+
+// var template = {address : "diachi"}
+// //console.log(convert.createSchema2(json,template));
+// prs.insetCustomer(json, template);
