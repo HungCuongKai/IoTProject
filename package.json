@@ -5,6 +5,8 @@
   "main": "main.js",
   "dependencies": {
     "dotenv": "^8.2.0",
+    "generate-schema": "^2.6.0",
+    "jsonschema": "^1.4.0",
     "mongoose": "^5.11.8"
   },
   "devDependencies": {},
