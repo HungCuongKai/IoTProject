@@ -49,8 +49,35 @@ function createSchema2(json_data, template){
 	return mongoSchema;
 }
 
+// Manual
+// thay đổi schema của 1 json theo định dạng mong muốn
+function convertJsonbySchema(json_data,template){
+	console.log(json_data)
+	console.log("\n")
+	console.log(template)
+	console.log("\n")
+	let json = json_data;
+	if(template == undefined) return json;
+	for(item in json_data){
+		if(typeof json_data[item] != 'object' || Array.isArray(json_data[item])){
+			if(template[item] != undefined){
+				json[template[item]] = json[item];
+				delete json[item];
+			}
+		}else{
+			let child_temp = null
+			if(template != undefined){
+				child_temp = template[item]
+			}
+			json[item] = convertJsonbySchema(json_data[item],child_temp);
+		}
+	}
+	return json;
+}
+
 module.exports = {
 	createSchema : createSchema,
-	createSchema2 : createSchema2
+	createSchema2 : createSchema2,
+	convertJsonbySchema : convertJsonbySchema
 }
 

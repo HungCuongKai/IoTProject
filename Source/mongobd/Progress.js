@@ -1,6 +1,8 @@
-require("./connection.js");
+var connectDB = require("./connection.js");
 var database   = require("./Database.js");
 var convert    = require("./Json2Schema.js");
+
+connectDB.getMongoDBConnect();
 
 function getTransactions(){
 	database.searchTable("transactions").find().exec((err,docs) => {
@@ -14,8 +16,8 @@ function getTransactions(){
 }
 
 
-function getCustomer(number,condition){
-	database.searchTable("customer").find(condition).limit(number).exec((err,docs) => {
+function getCustomer(number,selector,condition){
+	database.searchTable("customer").find(condition,selector).limit(number).exec((err,docs) => {
 		// var title = []
 		// for(x in docs.toJSON()){
 		// 	title.push(x);
